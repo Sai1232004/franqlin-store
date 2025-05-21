@@ -3,17 +3,17 @@ import com.franqlinstore.franqlin_store.entity.AddressEntity;
 import com.franqlinstore.franqlin_store.entity.UserEntity;
 import com.franqlinstore.franqlin_store.repository.AddressRepository;
 import com.franqlinstore.franqlin_store.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
+
+@RequiredArgsConstructor
 @Service
 public class AddressService {
 
-    @Autowired
-    private AddressRepository addressRepository;
+    private final AddressRepository addressRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    private  final UserRepository userRepository;
 
     public AddressEntity saveAddress(Long userId, AddressEntity address) {
         UserEntity user = userRepository.findById(userId).orElse(null);

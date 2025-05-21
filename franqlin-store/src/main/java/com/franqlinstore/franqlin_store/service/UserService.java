@@ -2,16 +2,15 @@ package com.franqlinstore.franqlin_store.service;
 
 import com.franqlinstore.franqlin_store.entity.UserEntity;
 import com.franqlinstore.franqlin_store.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@RequiredArgsConstructor
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private  final UserRepository userRepository;
 
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
