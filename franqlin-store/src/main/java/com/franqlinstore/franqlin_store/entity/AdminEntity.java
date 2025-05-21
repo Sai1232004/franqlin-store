@@ -1,9 +1,13 @@
 package com.franqlinstore.franqlin_store.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity
-@Table(name = "admins")
+@Table(name="admins")
 public class AdminEntity {
 
     @Id
@@ -22,11 +26,4 @@ public class AdminEntity {
         this.password = password;
     }
 
-    public Long getId() { return id; }
-    public String getEmail() { return email; }
-    public String getPassword() { return password; }
-
-    public void setId(Long id) { this.id = id; }
-    public void setEmail(String email) { this.email = email; }
-    public void setPassword(String password) { this.password = password; }
 }

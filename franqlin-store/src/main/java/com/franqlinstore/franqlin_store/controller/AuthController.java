@@ -1,16 +1,18 @@
 package com.franqlinstore.franqlin_store.controller;
 import com.franqlinstore.franqlin_store.entity.UserEntity;
 import com.franqlinstore.franqlin_store.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class AuthController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     // Login endpoint
     @PostMapping("/login")
@@ -31,22 +33,12 @@ public class AuthController {
     }
 
     // DTO class for login request
+    @Setter
+    @Getter
     public static class LoginRequest {
+        // Getters and setters
         private String email;
         private String password;
 
-        // Getters and setters
-        public String getEmail() {
-            return email;
-        }
-        public void setEmail(String email) {
-            this.email = email;
-        }
-        public String getPassword() {
-            return password;
-        }
-        public void setPassword(String password) {
-            this.password = password;
-        }
     }
 }

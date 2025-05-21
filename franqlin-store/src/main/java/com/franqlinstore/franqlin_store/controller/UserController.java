@@ -1,16 +1,15 @@
 package com.franqlinstore.franqlin_store.controller;
 import com.franqlinstore.franqlin_store.entity.UserEntity;
 import com.franqlinstore.franqlin_store.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
+@RequiredArgsConstructor
 public class UserController {
-
-    @Autowired
-    private UserService userService;
+    private  final UserService userService;
 
     // Get all users
     @GetMapping
